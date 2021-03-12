@@ -3,7 +3,7 @@ project(Project)
 
 execute_process(COMMAND python3 preparing.py WORKING_DIRECTORY ${PROJECT_SOURCE_DIR}/A)
 
-add_executable(Projectc C/main.cpp)
+add_executable(Project C/main.cpp)
 
 target_include_directories(Project PUBLIC ${PROJECT_SOURCE_DIR})
 
