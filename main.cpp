@@ -9,10 +9,6 @@
 #include "Factory.cpp"
 #endif
 
-#ifndef ARMY
-#define ARMY
-#include "Army.cpp"
-#endif
 
 using namespace std;
 
@@ -68,57 +64,9 @@ void test_unit_Fact() {
     cout << "\n--------------------------\n";
 }
 
-AttackerFactory AF;
-ProducerFactory PF;
-SaferFactory SF;
-vector<UnitFactory*> V = {&AF, &PF, &SF};
-
-void test_army() {
-    cout << "BEFORE BATTLE:\n";
-    vector<Unit*> A1;
-    int res = 100;
-    for (int i = 0; i < 2; ++i) {
-        A1.push_back(V[rand() % Constants::N_TYPES]->create_unit(res));
-    }
-    Army A(A1);
-    cout << "Army A:";
-    A.print_army();
-
-    A1.clear();
-    for (int i = 0; i < 2; ++i) {
-        A1.push_back(V[rand() % Constants::N_TYPES]->create_unit(res));
-    }
-
-    Army B(A1);
-    cout << "Army B:\n";
-    B.print_army();
-
-
-    A.attack(B);
-    B.attack(A);
-    A.step();
-    B.step();
-    A.attack(B);
-    B.attack(A);
-
-    A.step();
-    B.step();
-    A.attack(B);
-    B.attack(A);
-
-    cout << "AFTER BATTLE:\n";
-    cout << "Army A:";
-    A.print_army();
-
-    cout << "Army B:\n";
-    B.print_army();
-}
-
-
 int main() {
     srand(time(0));
     test0_units();
     test_attack();
     test_unit_Fact();
-    test_army();
 }
