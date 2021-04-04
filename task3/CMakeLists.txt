@@ -15,3 +15,4 @@ add_executable(Main main.cpp)
 add_executable(MainLib main_lib.cpp)
 
 target_link_libraries(MainLib buffer)
+install(TARGETS Main MainLib)
