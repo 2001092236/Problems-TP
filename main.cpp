@@ -1,9 +1,4 @@
 #include <vector>
-#ifndef MY_UNITS
-#define MY_UNITS
-#include "My_Units.cpp"
-#endif
-
 #ifndef FACTORY
 #define FACTORY
 #include "Factory.cpp"
