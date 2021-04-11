@@ -39,6 +39,7 @@ void test_attack() {
             j1 = rand() % A.size();
         }
         A[i1].attack(A[j1]);
+        A[i1].step();
     }
     cout << "\nAFTER:\n";
     for (int i = 0; i < A.size(); ++i) {

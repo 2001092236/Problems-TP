@@ -46,7 +46,9 @@ void Unit::attack(Unit& other) {
     if (last_action != Constants::Actions::NO) {
         throw("You Already do something by this Unit!!!");
     }
-    attack(other);
+    other.cause_damage(force);
+    if (other.alive)
+        cause_damage(other.force * Constants::contr_attack_coeff);
     last_action = Constants::Actions::ATTACK;
 }
 
