@@ -4,16 +4,17 @@
 #include "Unit.h"
 #endif
 
-
 Unit::Unit(int x, int y, int health, int force, Constants::UnitType type): \
-    x(x), y(y), health(health), force(force), type(type), alive(true), can_do(true) {}
+    x(x), y(y), health(health), force(force), type(type), \
+        alive(true), last_action(Constants::Actions::NO) {}
+
 
 
 void Unit::move(int dx, int dy) {
-    if (!can_do) {
+    if (last_action != Constants::Actions::NO) {
         throw ("You Already do something by this Unit!!!");
     }
-    can_do = false;
+    last_action = Constants::Actions::MOVE;
     x += dx;
     y += dy;
 }
@@ -36,25 +37,25 @@ void Unit::cause_damage(int dmg) {
     }
 }
 
-void Unit::attack(Unit& other) {
-    if (!alive)
-        return;
-    other.cause_damage(force);
-    if (other.alive)
-        cause_damage(other.force * Constants::contr_attack_coeff);
+int Unit::step() {
+    last_action = Constants::Actions::NO;
+    return 0;
 }
 
-void Unit::attack_in_army(Unit& other) {
-    if (!can_do) {
+void Unit::attack(Unit& other) {
+    if (last_action != Constants::Actions::NO) {
         throw("You Already do something by this Unit!!!");
     }
     attack(other);
-    can_do = false;
+    last_action = Constants::Actions::ATTACK;
 }
 
-void Unit::print_unit() const {
+void Unit::print_unit(int number) const {
+    if (number == -1)
+        std::cout << "----- " << Constants::UnitTypeStr[get_unit_type()] << "   ";
+    else
+        std::cout << "----- #" << number << " " << Constants::UnitTypeStr[get_unit_type()] << "   ";
 
-    std::cout << "----- " << Constants::UnitTypeStr[get_unit_type()] << "   ";
     if (alive)
         std::cout << " LIVE ";
     else

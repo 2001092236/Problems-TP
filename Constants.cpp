@@ -7,7 +7,7 @@ namespace Constants {
         Safer
     };
 
-    enum ArmyAction {
+    enum Actions {
         NO,
         ATTACK,
         MOVE
@@ -32,4 +32,6 @@ namespace Constants {
     const int Safer_health = 15;
     const int Safer_force = 2;
     const int Safer_cost = 5;
+
+    const int PlayerInitResources = 10;
 }

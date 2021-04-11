@@ -3,6 +3,7 @@
 #include "Factory.h"
 #endif
 
+
 Unit* AttackerFactory::create_unit(int& resources, int x, int y) const {
     Unit* t = nullptr;
     if (can_create(resources)) {
@@ -15,6 +16,7 @@ Unit* AttackerFactory::create_unit(int& resources, int x, int y) const {
 bool AttackerFactory::can_create(const int& resources) const {
     return resources >= Constants::Attacker_cost;
 }
+
 
 
 Unit* SaferFactory::create_unit(int& resources, int x, int y) const {

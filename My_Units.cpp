@@ -3,9 +3,9 @@
 #include "My_Units.h"
 #endif
 
-Attacker::Attacker(int x, int y) : Unit(x, y, Constants::Attacker_health,\
-                    Constants::Attacker_force, Constants::UnitType::Attacker) {}
 
+Attacker::Attacker(int x, int y): Unit(x, y, Constants::Attacker_health,\
+            Constants::Attacker_force, Constants::UnitType::Attacker) {}
 int Attacker::get_unit_resource() const {
     return 0;
 }
@@ -18,9 +18,19 @@ int Safer::get_unit_resource() const {
 }
 
 
-Producer::Producer(int x, int y): \
-        Unit(x, y, Constants::Producer_health, Constants::Producer_force,\
-            Constants::UnitType::Producer), produce(Constants::Producer_produce) {}
+Producer::Producer(int x , int y): Unit(x, y, Constants::Producer_health,\
+                Constants::Producer_force, Constants::UnitType::Producer),\
+                    produce(Constants::Producer_produce) {}
+
 int Producer::get_unit_resource() const {
     return produce;
+}
+
+
+int Producer::step() {
+    Constants::Actions lst = last_action;
+    last_action = Constants::Actions::NO;
+    if (lst == Constants::Actions::ATTACK)
+        return 0;
+    return get_unit_resource();
 }

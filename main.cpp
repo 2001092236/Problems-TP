@@ -4,6 +4,11 @@
 #include "Factory.cpp"
 #endif
 
+#ifndef PLAYER
+#define PLAYER
+#include "Player.cpp"
+#endif
+
 
 using namespace std;
 
@@ -59,9 +64,30 @@ void test_unit_Fact() {
     cout << "\n--------------------------\n";
 }
 
+void test_army() {
+    Player_with_army p1, p2;
+    p1.create_empty_army();
+    p1.add_unit_to_army(Constants::Attacker, 0);
+    p1.create_empty_army();
+    p1.add_unit_to_army(Constants::Producer, 1);
+    p1.step();
+    p2.create_empty_army();
+    p2.add_unit_to_army(Constants::Attacker, 0);
+    p2.add_unit_to_army(Constants::Attacker, 0);
+    p2.step();
+    cout << "Before attack:\n";
+    p1.print_player("Player#1");
+    p2.print_player("Player#2");
+    p1.attack(0, p2, 0);
+    cout << "After attack:\n";
+    p1.print_player("Player#1");
+    p2.print_player("Player#2");
+}
+
 int main() {
     srand(time(0));
     test0_units();
     test_attack();
     test_unit_Fact();
+    test_army();
 }
