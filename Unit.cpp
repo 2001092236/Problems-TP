@@ -41,7 +41,7 @@ void Unit::attack(Unit& other) {
         return;
     other.cause_damage(force);
     if (other.alive)
-        cause_damage(other.force * Constants::contr_attack_coeff);
+        cause_damage(other.force * 0.75);
 }
 
 void Unit::attack_in_army(Unit& other) {
