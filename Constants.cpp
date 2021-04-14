@@ -8,9 +8,9 @@ namespace Constants {
     };
 
     enum ArmyAction {
-        NO,
-        ATTACK,
-        MOVE
+        No,
+        Attack,
+        Move
     };
 
     const int N_TYPES = 3;
