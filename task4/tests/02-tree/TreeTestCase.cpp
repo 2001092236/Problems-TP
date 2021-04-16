@@ -28,5 +28,8 @@ TEST_F(TreeTestCase, FilterEmptyNodes) {
     std::ofstream ofs("dir/file.txt");
 
     ASSERT_FALSE(GetTree("./dir", false) == GetTree("./dir", true));
+    ///FilterEmptyNodes(GetTree("./dir", false), ".");
+    FilterEmptyNodes(GetTree("./dir", false), "./dir");
+    ///FilterEmptyNodes(GetTree("./dir/file.txt", false), "./dir/file.txt");
     boost::filesystem::remove_all("dir", ec);
 }
