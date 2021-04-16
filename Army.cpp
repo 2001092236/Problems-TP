@@ -31,7 +31,7 @@ void Army::clean_all_army() {
     }
 }
 
-Army::Army(): last_action(Constants::Actions::NO) {}
+Army::Army(): last_action(Constants::Actions::No) {}
 
 Army::Army(const std::vector<Unit*>& v): Army() {
     for (int i = 0; i < int(v.size()); ++i) {
@@ -51,8 +51,8 @@ int Army::step() {
         }
     }
     Constants::Actions lst = last_action;
-    last_action = Constants::Actions::NO;
-    if (lst == Constants::Actions::ATTACK)
+    last_action = Constants::Actions::No;
+    if (lst == Constants::Actions::Attack)
         return 0;
     return res;
 }
@@ -68,10 +68,10 @@ void Army::print_army(int number) const {
 }
 
 void Army::attack(Army& other) {
-    if (last_action!= Constants::Actions::NO) {
+    if (last_action!= Constants::Actions::No) {
         throw("You Already do something by this Army!!!");
     }
-    last_action = Constants::Actions::ATTACK;
+    last_action = Constants::Actions::Attack;
     std::vector<Unit*>& attackers = units[Constants::UnitType::Attacker];
     std::vector<Unit*>& safers = units[Constants::UnitType::Safer];
     std::vector<Unit*>& producers = units[Constants::UnitType::Producer];
@@ -150,11 +150,11 @@ void Army::attack(Army& other) {
 }
 
 void Army::move(int dx, int dy) {
-    if (last_action!= Constants::Actions::NO) {
+    if (last_action!= Constants::Actions::No) {
         throw("You Already do something by this Army!!!");
     }
 
-    last_action = Constants::Actions::MOVE;
+    last_action = Constants::Actions::Move;
 
     for (int i = 0; i < Constants::N_TYPES; ++i) {
         for (int j = 0; j < int(units[i].size()); ++j) {

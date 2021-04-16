@@ -6,15 +6,15 @@
 
 Unit::Unit(int x, int y, int health, int force, Constants::UnitType type): \
     x(x), y(y), health(health), force(force), type(type), \
-        alive(true), last_action(Constants::Actions::NO) {}
+        alive(true), last_action(Constants::Actions::No) {}
 
 
 
 void Unit::move(int dx, int dy) {
-    if (last_action != Constants::Actions::NO) {
+    if (last_action != Constants::Actions::No) {
         throw ("You Already do something by this Unit!!!");
     }
-    last_action = Constants::Actions::MOVE;
+    last_action = Constants::Actions::Move;
     x += dx;
     y += dy;
 }
@@ -38,18 +38,19 @@ void Unit::cause_damage(int dmg) {
 }
 
 int Unit::step() {
-    last_action = Constants::Actions::NO;
+    last_action = Constants::Actions::No;
     return 0;
 }
 
+
 void Unit::attack(Unit& other) {
-    if (last_action != Constants::Actions::NO) {
+    if (last_action != Constants::Actions::No) {
         throw("You Already do something by this Unit!!!");
     }
     other.cause_damage(force);
     if (other.alive)
-        cause_damage(other.force * Constants::contr_attack_coeff);
-    last_action = Constants::Actions::ATTACK;
+        cause_damage(other.force * 0.75);
+    last_action = Constants::Actions::Attack;
 }
 
 void Unit::print_unit(int number) const {

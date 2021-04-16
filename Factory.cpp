@@ -7,14 +7,14 @@
 Unit* AttackerFactory::create_unit(int& resources, int x, int y) const {
     Unit* t = nullptr;
     if (can_create(resources)) {
-        resources -= Constants::Attacker_cost;
+        resources -= 3;
         t = new Attacker(x, y);
     }
     return t;
 }
 
 bool AttackerFactory::can_create(const int& resources) const {
-    return resources >= Constants::Attacker_cost;
+    return resources >= 3;
 }
 
 
@@ -22,26 +22,26 @@ bool AttackerFactory::can_create(const int& resources) const {
 Unit* SaferFactory::create_unit(int& resources, int x, int y) const {
     Unit* t = nullptr;
     if (can_create(resources)) {
-        resources -= Constants::Safer_cost;
+        resources -= 5;
         t = new Safer(x, y);
     }
     return t;
 }
 
 bool SaferFactory::can_create(const int& resources) const {
-    return resources >= Constants::Safer_cost;
+    return resources >= 5;
 }
 
 
 Unit* ProducerFactory::create_unit(int& resources, int x, int y) const {
     Unit* t = nullptr;
     if (can_create(resources)) {
-        resources -= Constants::Producer_cost;
+        resources -= 6;
         t = new Producer(x, y);
     }
     return t;
 }
 
 bool ProducerFactory::can_create(const int& resources) const {
-    return resources >= Constants::Producer_cost;
+    return resources >= 6;
 }

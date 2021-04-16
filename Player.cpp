@@ -12,7 +12,7 @@ Player_with_army::Player_with_army() {
     Fact[0] = new AttackerFactory();
     Fact[1] = new ProducerFactory();
     Fact[2] = new SaferFactory();
-    resources = Constants::PlayerInitResources;
+    resources = 10;
 }
 
 bool Player_with_army::add_unit_to_army(Constants::UnitType type, int num_army) {
