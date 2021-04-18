@@ -7,5 +7,8 @@
 
 class WeatherTestCase : public ::testing::Test {
 public:
+    void SetUp();
     WeatherMock weather;
+    cpr::Response Kazan;
+    cpr::Response Moscow;
 };
