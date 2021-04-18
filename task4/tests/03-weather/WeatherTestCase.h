@@ -11,4 +11,5 @@ public:
     WeatherMock weather;
     cpr::Response Kazan;
     cpr::Response Moscow;
+    cpr::Response Omsk;
 };
