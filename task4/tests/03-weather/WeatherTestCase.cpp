@@ -33,8 +33,14 @@ TEST_F(WeatherTestCase, GetTemperature)
 TEST_F(WeatherTestCase, GetDifferenceString)
 {
     ASSERT_NO_THROW(weather.GetDifferenceString("Kazan", "Moscow"));
-    ASSERT_NO_THROW(weather.GetDifferenceString("Kazan", "Moscow"));
+    ASSERT_NO_THROW(weather.GetDifferenceString("Moscow", "Kazan"));
 }
+
+TEST_F(WeatherTestCase, BadCity)
+{
+    ASSERT_ANY_THROW(weather.GetTemperature("BadCity"));
+}
+
 
 TEST_F(WeatherTestCase, SetApiKey)
 {
