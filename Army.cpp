@@ -13,7 +13,7 @@ void Army::remove_unit(Constants::UnitType typeArmy, int pos) {
     remove_unit(units[typeArmy], pos);
 }
 
-void Army::clean_army(std::vector<Unit*>& v) {
+void Army::clear_army(std::vector<Unit*>& v) {
     int sz = v.size();
     for (int i = sz - 1; i >= 0; --i) {
         if (!v[i]->alive)
@@ -21,13 +21,13 @@ void Army::clean_army(std::vector<Unit*>& v) {
     }
 }
 
-void Army::clean_army(Constants::UnitType typeArmy) {
-    clean_army(units[typeArmy]);
+void Army::clear_army(Constants::UnitType typeArmy) {
+    clear_army(units[typeArmy]);
 }
 
-void Army::clean_all_army() {
+void Army::clear_all_army() {
     for (int i = 0; i < Constants::N_TYPES; ++i) {
-        clean_army(static_cast<Constants::UnitType>(i));
+        clear_army(static_cast<Constants::UnitType>(i));
     }
 }
 
@@ -111,7 +111,7 @@ void Army::attack(Army& other) {
     }
 
     ///END Attackers attack
-    clean_army(attackers);
+    clear_army(attackers);
 
     ///Safer -> other.Safers
     i = 0;
@@ -146,7 +146,7 @@ void Army::attack(Army& other) {
     }
 
     ///END Safers attack
-    clean_army(safers);
+    clear_army(safers);
 }
 
 void Army::move(int dx, int dy) {

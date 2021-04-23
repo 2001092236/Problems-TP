@@ -66,7 +66,7 @@ void test_unit_Fact() {
 }
 
 void test_army() {
-    Player_with_army p1, p2;
+    Player p1, p2;
     p1.create_empty_army();
     p1.add_unit_to_army(Constants::Attacker, 0);
     p1.create_empty_army();

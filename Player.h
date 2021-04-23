@@ -12,7 +12,7 @@
 #include <vector>
 #include <string>
 
-class Player_with_army {
+class Player {
     void print_army(std::string = "You") const;
 public:
     int resources;
@@ -20,15 +20,15 @@ public:
     UnitFactory* Fact[Constants::N_TYPES];
 
 
-    Player_with_army();
+    Player();
 
     void create_empty_army();
 
-    void clean_army(Army*);
+    void clear_army(Army*);
 
     bool add_unit_to_army(Constants::UnitType, int = 0);
 
-    bool attack(int, Player_with_army&, int);
+    bool attack(int, Player&, int);
 
     bool move(int, int = 0, int = 0);
 
