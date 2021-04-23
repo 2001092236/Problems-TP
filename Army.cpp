@@ -137,6 +137,22 @@ void Army::attack(Army& other) {
     clear_army(safers);
 }
 
+void Army::merge(Army& other) {
+    for (int i = 0; i < Constants::N_TYPES; ++i) {
+        for (int j = 0; j < other.units[i].size(); ++j) {
+            add_unit(other.units[i][j]);
+        }
+    }
+    for (int i = 0; i < Constants::N_TYPES; ++i) {
+        while (!other.units[i].empty())
+            other.units[i].pop_back();
+    }
+}
+
+int Army::get_number(Constants::UnitType id) const {
+    return units[id].size();
+}
+
 void Army::move(int dx, int dy) {
     if (last_action!= Constants::Actions::No) {
         throw("You Already do something by this Army!!!");

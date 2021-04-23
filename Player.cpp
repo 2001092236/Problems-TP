@@ -45,6 +45,13 @@ bool Player::move(int my_num, int dx, int dy) {
     return true;
 }
 
+void Player::merge_armies(int n1, int n2) {
+    if (n1 < 0 || n1 >= armies.size() || n2 < 0 || n2 >= armies.size())
+        throw "Bad numbers of armies";
+    std::swap(armies[n2], armies.back());
+    armies[n1]->merge(*armies[n2]);
+    armies.pop_back();
+}
 
 void Player::step() {
     int res = 0;

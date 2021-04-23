@@ -11,8 +11,8 @@ class Army {
     void clear_army(std::vector<Unit*>&);
     void clear_army(Constants::UnitType);
     Constants::Actions last_action;
-    std::vector<Unit*> units[Constants::N_TYPES];
 public:
+    std::vector<Unit*> units[Constants::N_TYPES];
 
     void clear_all_army();
 
@@ -25,6 +25,10 @@ public:
     int step();
 
     void attack(Army&);
+
+    void merge(Army&);
+
+    int get_number(Constants::UnitType) const;
 
     void move(int, int);
 };

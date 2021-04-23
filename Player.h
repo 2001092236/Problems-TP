@@ -24,6 +24,8 @@ public:
 
     bool move(int, int = 0, int = 0);
 
+    void merge_armies(int, int);
+
     void step();
 };
 #endif
