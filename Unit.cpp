@@ -1,8 +1,8 @@
+#ifndef UNIT_CPP
+#define UNIT_CPP
+
 #include <iostream>
-#ifndef UNITH
-#define UNITH
 #include "Unit.h"
-#endif
 
 Unit::Unit(int x, int y, int health, int force, Constants::UnitType type): \
     x(x), y(y), health(health), force(force), type(type), \
@@ -52,19 +52,4 @@ void Unit::attack(Unit& other) {
         cause_damage(other.force * 0.75);
     last_action = Constants::Actions::Attack;
 }
-
-void Unit::print_unit(int number) const {
-    if (number == -1)
-        std::cout << "----- " << Constants::UnitTypeStr[get_unit_type()] << "   ";
-    else
-        std::cout << "----- #" << number << " " << Constants::UnitTypeStr[get_unit_type()] << "   ";
-
-    if (alive)
-        std::cout << " LIVE ";
-    else
-        std::cout << " DEAD ";
-    std::cout << " -----\n";
-
-    std::cout << "---   Health: " << health << " Force: " << force << " ---\n";
-    std::cout << "------------------------------\n";
-}
+#endif

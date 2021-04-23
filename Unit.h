@@ -1,8 +1,6 @@
-#ifndef CONSTANTS
-#define CONSTANTS
+#ifndef UNIT_H
+#define UNIT_H
 #include "Constants.cpp"
-#endif
-
 #include <iostream>
 
 class Unit {
@@ -29,6 +27,5 @@ public:
     virtual int step();
 
     virtual void attack(Unit&);
-
-    virtual void print_unit(int = -1) const;
 };
+#endif

@@ -1,8 +1,7 @@
-#ifndef UNIT
-#define UNIT
-#include "Unit.cpp"
-#endif
+#ifndef MY_UNITS_H
+#define MY_UNITS_H
 
+#include "Unit.cpp"
 
 class Attacker: public Unit {
 public:
@@ -24,3 +23,4 @@ public:
     int get_unit_resource() const override;
     int step() override;
 };
+#endif

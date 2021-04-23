@@ -1,14 +1,8 @@
 #include <vector>
-#ifndef FACTORY
-#define FACTORY
-#include "Factory.cpp"
-#endif
-
 #ifndef PLAYER
 #define PLAYER
 #include "Player.cpp"
 #endif
-
 
 using namespace std;
 
@@ -28,10 +22,6 @@ void test_attack() {
     A.push_back(Attacker(1, 2));
     A.push_back(Safer(2, 3));
     A.push_back(Producer(3, 7));
-    cout << "BEFORE:\n";
-    for (int i = 0; i < A.size(); ++i) {
-        A[i].print_unit();
-    }
     for (int i = 0; i < 14; ++i) {
         int i1 = rand() % A.size();
         int j1 = i1;
@@ -41,11 +31,6 @@ void test_attack() {
         A[i1].attack(A[j1]);
         A[i1].step();
     }
-    cout << "\nAFTER:\n";
-    for (int i = 0; i < A.size(); ++i) {
-        A[i].print_unit();
-    }
-    cout << "\n--------------------------\n";
 }
 
 void test_unit_Fact() {
@@ -57,12 +42,6 @@ void test_unit_Fact() {
             A.push_back(*F.create_unit(res));
         }
     }
-
-    cout << "res: " << res << "\n";
-    for (int i = 0; i < A.size(); ++i) {
-        A[i].print_unit();
-    }
-    cout << "\n--------------------------\n";
 }
 
 void test_army() {
@@ -76,13 +55,7 @@ void test_army() {
     p2.add_unit_to_army(Constants::Attacker, 0);
     p2.add_unit_to_army(Constants::Attacker, 0);
     p2.step();
-    cout << "Before attack:\n";
-    p1.print_player("Player#1");
-    p2.print_player("Player#2");
     p1.attack(0, p2, 0);
-    cout << "After attack:\n";
-    p1.print_player("Player#1");
-    p2.print_player("Player#2");
 }
 
 int main() {

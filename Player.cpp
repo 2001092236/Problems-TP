@@ -1,8 +1,8 @@
-#ifndef PLAYERH
-#define PLAYERH
-#include "Player.h"
-#endif
+#ifndef PLAYER_CPP
+#define PLAYER_CPP
 
+
+#include "Player.h"
 
 void Player::clear_army(Army* army) {
     army->clear_all_army();
@@ -45,20 +45,6 @@ bool Player::move(int my_num, int dx, int dy) {
     return true;
 }
 
-void Player::print_army(std::string str) const {
-    std::cout << "@@@@@@@@@@@@ " << str << " @@@@@@@@@@@\n";
-    for (int j = 0; j < armies.size(); ++j) {
-        armies[j]->print_army(j);
-    }
-    std::cout << "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n";
-}
-
-void Player::print_player(std::string str) const {
-    std::cout << str << ":\n";
-    std::cout << "resources: " << resources << "\n";
-    std::cout << "Armies: \n";
-    print_army(str);
-}
 
 void Player::step() {
     int res = 0;
@@ -67,3 +53,4 @@ void Player::step() {
     }
     resources += res;
 }
+#endif

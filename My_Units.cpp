@@ -1,7 +1,6 @@
-#ifndef MY_UNITSH
-#define MY_UNITSH
+#ifndef MY_UNITS_CPP
+#define MY_UNITS_CPP
 #include "My_Units.h"
-#endif
 
 Attacker::Attacker(int x, int y) : Unit(x, y, 10,\
                     5, Constants::UnitType::Attacker) {}
@@ -34,3 +33,4 @@ int Producer::step() {
         return 0;
     return get_unit_resource();
 }
+#endif

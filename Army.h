@@ -1,8 +1,8 @@
-#ifndef MY_UNITS
-#define MY_UNITS
-#include "My_Units.cpp"
-#endif
+#ifndef ARMYHf
+#define ARMYHf
+
 #include <vector>
+#include "My_Units.cpp"
 
 class Army {
     void remove_unit(std::vector<Unit*>&, int);
@@ -24,9 +24,8 @@ public:
 
     int step();
 
-    void print_army(int) const;
-
     void attack(Army&);
 
     void move(int, int);
 };
+#endif

@@ -1,3 +1,6 @@
+#ifndef CONSTANTS
+#define CONSTANTS
+
 #include <string>
 
 namespace Constants {
@@ -18,3 +21,4 @@ namespace Constants {
 
     std::string UnitTypeStr[N_TYPES] = {"ATTACKER", "PRODUCER", "SAFER"};
 }
+#endif

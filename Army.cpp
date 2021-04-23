@@ -1,8 +1,6 @@
-#ifndef ARMYH
-#define ARMYH
+#ifndef ARMY_CPP
+#define ARMY_CPP
 #include "Army.h"
-#endif
-
 
 void Army::remove_unit(std::vector<Unit*>& v, int pos) {
     std::swap(v[pos], v.back());
@@ -55,16 +53,6 @@ int Army::step() {
     if (lst == Constants::Actions::Attack)
         return 0;
     return res;
-}
-
-void Army::print_army(int number) const {
-    std::cout << "@@@@@@@@@@@@ ARMY#" << number << " @@@@@@@@@@@\n";
-    for (int i = 0; i < Constants::N_TYPES; ++i) {
-        for (int j = 0; j < units[i].size(); ++j) {
-            units[i][j]->print_unit();
-        }
-    }
-    std::cout << "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n";
 }
 
 void Army::attack(Army& other) {
@@ -162,3 +150,4 @@ void Army::move(int dx, int dy) {
         }
     }
 }
+#endif

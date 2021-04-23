@@ -1,7 +1,6 @@
-#ifndef MY_UNITS
-#define MY_UNITS
+#ifndef FACTORY_H
+#define FACTORY_H
 #include "My_Units.cpp"
-#endif
 
 class UnitFactory {
 public:
@@ -29,3 +28,4 @@ public:
 
     bool can_create(const int&) const override;
 };
+#endif
