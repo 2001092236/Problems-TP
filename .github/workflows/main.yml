@@ -36,7 +36,6 @@ jobs:
          cd build
          cmake -DCMAKE_INSTALL_PREFIX=exe_files ..
          make
-         make install
       
       - name: Test
         uses: akhtyamovpavel/ActionGtestReport@v0.0.9
