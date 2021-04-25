@@ -31,7 +31,7 @@ jobs:
         run: |
           cd task5
           mkdir 3rdparty
-          git clone https://github.com/google/googletest.git 3rdparty  
+          git clone https://github.com/google/googletest.git 3rdparty/
           mkdir build
           cd build
           cmake -DCMAKE_INSTALL_PREFIX=exe_files ..
@@ -43,3 +43,9 @@ jobs:
           exec-path: task5/bin/CTestExe
           report-path: report.xml
           working-directory: .
+
+      - name: UploadArtifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: Distributive
+          path: task5/build/exe_files/exe
