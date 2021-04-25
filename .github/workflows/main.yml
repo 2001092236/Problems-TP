@@ -27,6 +27,8 @@ jobs:
       
       - name: Build
         run: |
+         mkdir task5
+         cd task5
          mkdir 3rdparty
          mkdir build
          git clone https://github.com/google/googletest.git 3rdparty
