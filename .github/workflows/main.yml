@@ -48,4 +48,6 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: Distributive
-          path: task5/build/exe_files/exe
+          path: |
+            task5/lib
+            task5/bin
