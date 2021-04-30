@@ -1,9 +1,8 @@
 #include <vector>
-#ifndef FACTORY
-#define FACTORY
-#include "Factory.cpp"
+#ifndef PLAYER
+#define PLAYER
+#include "Player.cpp"
 #endif
-
 
 using namespace std;
 
