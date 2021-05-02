@@ -1,7 +1,6 @@
-#ifndef FACTORYH
-#define FACTORYH
+#ifndef FACTORY_CPP
+#define FACTORY_CPP
 #include "Factory.h"
-#endif
 
 Unit* AttackerFactory::create_unit(int& resources, int x, int y) const {
     Unit* t = nullptr;
@@ -15,6 +14,7 @@ Unit* AttackerFactory::create_unit(int& resources, int x, int y) const {
 bool AttackerFactory::can_create(const int& resources) const {
     return resources >= 3;
 }
+
 
 
 Unit* SaferFactory::create_unit(int& resources, int x, int y) const {
@@ -43,3 +43,4 @@ Unit* ProducerFactory::create_unit(int& resources, int x, int y) const {
 bool ProducerFactory::can_create(const int& resources) const {
     return resources >= 6;
 }
+#endif

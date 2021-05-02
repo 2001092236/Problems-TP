@@ -1,18 +1,18 @@
-#ifndef CONSTANTS
-#define CONSTANTS
+#ifndef UNIT_H
+#define UNIT_H
 #include "Constants.cpp"
-#endif
+#include <iostream>
 
 class Unit {
 protected:
     Unit(int, int, int, int, Constants::UnitType);
+
     int x, y;
-    int health;
-    int force;
     Constants::UnitType type;
+    Constants::Actions last_action;
+
 public:
     bool alive;
-    bool can_do;
 
     virtual void move(int, int);
 
@@ -22,9 +22,11 @@ public:
 
     virtual void cause_damage(int);
 
+    virtual int step();
+
     virtual void attack(Unit&);
 
-    virtual void attack_in_army(Unit&);
-
-    virtual void print_unit() const;
+    int force;
+    int health;
 };
+#endif

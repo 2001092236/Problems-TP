@@ -1,3 +1,6 @@
+#ifndef CONSTANTS
+#define CONSTANTS
+
 #include <string>
 
 namespace Constants {
@@ -7,7 +10,8 @@ namespace Constants {
         Safer
     };
 
-    enum ArmyAction {
+
+    enum Actions {
         No,
         Attack,
         Move
@@ -17,3 +21,4 @@ namespace Constants {
 
     std::string UnitTypeStr[N_TYPES] = {"ATTACKER", "PRODUCER", "SAFER"};
 }
+#endif

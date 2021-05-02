@@ -1,12 +1,8 @@
-#include <vector>
-#ifndef FACTORY
-#define FACTORY
-#include "Factory.cpp"
-#endif
-
+#include "Game.cpp"
 
 using namespace std;
 
 int main() {
-
+    Game g;
+    g.start();
 }
