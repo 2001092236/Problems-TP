@@ -11,9 +11,9 @@ WORKDIR build
 RUN apt-get update && apt-get install -y cmake
 RUN cmake ..
 RUN make
-RUN pip install flask
 
 WORKDIR /app
 USER techproguser
 EXPOSE 5000
+RUN pip install flask
 CMD python app.py --port 5000 --host "0.0.0.0"
