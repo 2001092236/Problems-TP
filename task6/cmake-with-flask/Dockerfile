@@ -1,20 +1,17 @@
-FROM ubuntu:latest
-
-WORKDIR /app
+FROM python:3.6
 
 RUN groupadd --gid 2000  techproguser\
   && useradd --uid 2000 --gid techproguser --shell /bin/bash --create-home techproguser
 
+WORKDIR /app
 ADD . /app
 
 WORKDIR build
 
-RUN apt-get update && apt-get upgrade -y && apt-get install -y cmake g++ python3 python3-pip
-RUN
-RUN pip install flask
+RUN apt-get update && apt-get install -y cmake
 RUN cmake ..
 RUN make
-
+RUN pip install flask
 
 WORKDIR /app
 USER techproguser
