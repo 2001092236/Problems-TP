@@ -9,7 +9,8 @@ ADD . /app
 
 WORKDIR build
 
-RUN apt-get update && apt-get -y install cmake
+RUN apt-get update && apt-get upgrade -y && apt-get install -y cmake g++ python3 python3-pip
+RUN
 RUN pip install flask
 RUN cmake ..
 RUN make
