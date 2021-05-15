@@ -1,3 +1,3 @@
 f = open('index.h', 'w')
-f.write('''#include <iostream>\nvoid corr_A() { std::cout << "A is correct!";}''')
+f.write('''#pragma once\n#include <iostream>\ninline void corr_A() { std::cout << "A is correct!";}''')
 f.close()

@@ -4,7 +4,7 @@ project(Project)
 find_package(GTest)
 find_package(Threads)
 
-include_directories (${GTEST_INCLUDE_DIRS})
+target_include_directories(${GTEST_INCLUDE_DIRS})
 
 execute_process(COMMAND python3 preparing.py WORKING_DIRECTORY ${PROJECT_SOURCE_DIR}/A)
 

@@ -1,4 +1,5 @@
+#pragma once
 #include <iostream>
-void corr_B() {
+inline void corr_B() {
     std::cout << "B is correct!!";
 }
